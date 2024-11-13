@@ -71,6 +71,16 @@ pipeline {
                 }
             }
         }
+
+        stage('Performance Analysis') {
+            steps {
+                script {
+                    echo 'Analyse des performances du conteneur...'
+                    def statsOutput = bat(script: "docker stats ${CONTAINER_ID} --no-stream", returnStdout: true)
+                    echo "Consommation de ressources :\n${statsOutput}"
+                }
+            }
+        }
         
     }
 
