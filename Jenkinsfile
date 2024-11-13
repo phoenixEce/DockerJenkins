@@ -60,7 +60,28 @@ pipeline {
                 }   
             }
         }
+
+        stage('Déploiement sur DockerHub') {
+            steps {
+                echo 'Déploiement de limage Docker sur DockerHub...'
+                script {
+                    bat 'docker login -u sandrinenjeunkam -p dockerhub'
+                    bat 'docker tag python-sum sandrinenjeunkam/python-sum:latest'
+                    bat 'docker push sandrinenjeunkam/python-sum:latest'
+                }
+            }
+        }
         
+    }
+
+    post {
+        always {
+            script {
+                echo 'Arrêt et suppression du conteneur...'
+                bat "docker stop ${CONTAINER_ID}"
+                bat "docker rm ${CONTAINER_ID}"
+            }
+        }
     }
 
 }
