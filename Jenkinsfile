@@ -91,8 +91,16 @@ pipeline {
                     
                     echo "Contenu du répertoire build :"
                     bat "docker exec ${CONTAINER_ID} ls /app/build"
+
+                    bat "docker cp ${CONTAINER_ID}:/app/build ${WORKSPACE}/build"
+            
+                    // Afficher le contenu du répertoire où les fichiers ont été copiés
+                    bat "dir ${WORKSPACE}/build"
                     
-                    archiveArtifacts '**/build/**/*'
+                    // Archiver les fichiers copiés
+                    archiveArtifacts "${WORKSPACE}/build/**/*"
+                            
+                    // archiveArtifacts '**/build/**/*'
                 }
             }
         }
