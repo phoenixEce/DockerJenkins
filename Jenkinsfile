@@ -12,7 +12,7 @@ pipeline {
             steps {
                 script {
                     echo "Construction de l'image Docker..."
-                    bat "docker build -t my_python_app \"${DIR_PATH}\""
+                    bat "docker build -t python-sum \"${DIR_PATH}\""
                 }
             }
         }
