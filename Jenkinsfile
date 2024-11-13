@@ -95,7 +95,7 @@ pipeline {
                     bat "docker cp ${CONTAINER_ID}:/app/build ${WORKSPACE}/build"
             
                     // Afficher le contenu du répertoire où les fichiers ont été copiés
-                    bat "dir ${WORKSPACE}/build"
+                    bat "dir \"${WORKSPACE}\\build\""
                     
                     // Archiver les fichiers copiés
                     archiveArtifacts "${WORKSPACE}/build/**/*"
