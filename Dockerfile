@@ -8,9 +8,11 @@ COPY sum.py /app
 
 RUN sphinx-quickstart -q -p "Documentation de sum en python" -a "Sandrine" -v "1.0" --sep --ext-autodoc --ext-viewcode --makefile --no-batchfile
 
-COPY conf.py /app/source
+RUN echo "sum.py.........." >> /app/source/index.rst
 
-COPY index.rst /app/source
+# COPY conf.py /app/source
+
+# COPY index.rst /app/source
 
 RUN sphinx-build -b html /app/source /app/build
 
