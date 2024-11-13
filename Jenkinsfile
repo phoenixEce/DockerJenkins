@@ -2,9 +2,9 @@ pipeline {
     agent any
     environment {
        CONTAINER_ID = 63a0166e427d
-       SUM_PY_PATH = E:\Cours\MSC1\Devops\TP_Jenkins\sum.py
-       DIR_PATH = E:\Cours\MSC1\Devops\TP_Jenkins\Dockerfile
-       TEST_FILE_PATH = E:\Cours\MSC1\Devops\TP_Jenkins\test_variables.txt
+       SUM_PY_PATH = 'sum.py'
+       DIR_PATH = 'Dockerfile'
+       TEST_FILE_PATH = 'test_variables.txt'
     }
 
     stages {
