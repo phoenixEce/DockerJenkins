@@ -98,9 +98,9 @@ pipeline {
                     bat "dir \"${WORKSPACE}\\build\""
                     
                     // Archiver les fichiers copiés
-                    archiveArtifacts "${WORKSPACE}/build/**/*"
+                    // archiveArtifacts "${WORKSPACE}/build/**/*"
                             
-                    // archiveArtifacts '**/build/**/*'
+                    archiveArtifacts 'build/**/*'
                 }
             }
         }
