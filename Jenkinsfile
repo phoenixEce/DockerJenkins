@@ -17,17 +17,16 @@ pipeline {
             }
         }
 
-         stage('Run') {
-            steps {
-                script {
-                   echo 'Démarrage du conteneur Docker...'
-                    def output = sh(script: 'docker run -d python-sum tail -f /dev/null', returnStdout: true)
-                    CONTAINER_ID = output.trim()
-                    echo "Conteneur démarré avec l'ID : ${CONTAINER_ID}"
-                }
+    stage('Run') {
+        steps {
+            script {
+                echo 'Démarrage du conteneur Docker...'
+                def output = bat(script: 'docker run -d python-sum tail -f /dev/null', returnStdout: true)
+                CONTAINER_ID = output.trim().split('\r\n')[-1].trim()
+                echo "Conteneur démarré avec l'ID : ${CONTAINER_ID}"
             }
         }
-
+    }
 
     }
     
