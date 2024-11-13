@@ -3,7 +3,7 @@ pipeline {
     environment {
     //    CONTAINER_ID = 63a0166e427d
        SUM_PY_PATH = 'E:/Cours/MSC1/Devops/TP_Jenkins/sum.py'
-       DIR_PATH = 'E:/Cours/MSC1/Devops/TP_Jenkins/Dockerfile'
+       DIR_PATH = ''
        TEST_FILE_PATH = 'E:/Cours/MSC1/Devops/TP_Jenkins/test_variables.txt'
     }
 
