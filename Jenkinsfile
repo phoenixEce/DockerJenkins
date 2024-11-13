@@ -72,16 +72,26 @@ pipeline {
             }
         }
 
-        stage('Performance Analysis') {
+        stage('Analyse des performances') {
             steps {
                 script {
                     echo 'Analyse des performances du conteneur...'
                     def statsOutput = bat(script: "docker stats ${CONTAINER_ID} --no-stream", returnStdout: true)
-                    echo "Consommation de ressources :\n${statsOutput}"
+                    echo "Consommation des ressources :\n${statsOutput}"
                 }
             }
         }
         
+        stage('Documentation') {
+            steps {
+                script {
+                    echo 'Génération de la documentation...'
+                    bat "docker exec ${CONTAINER_ID} sphinx-build -b html /app/source /app/build"
+                    archiveArtifacts 'build/**/*'
+                }
+            }
+        }
+
     }
 
     post {
