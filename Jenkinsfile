@@ -92,7 +92,7 @@ pipeline {
                     
                     // Vérifier le contenu du répertoire build
                     echo "Contenu du répertoire build :"
-                    bat "docker exec ${CONTAINER_ID} dir /app/build"
+                    bat "docker exec ${CONTAINER_ID} ls /app/build"
                     
                     // Archiver les artefacts générés
                     archiveArtifacts 'build/**/*'
