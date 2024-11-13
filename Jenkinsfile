@@ -92,7 +92,7 @@ pipeline {
                     echo "Contenu du répertoire build :"
                     bat "docker exec ${CONTAINER_ID} ls /app/build"
                     
-                    archiveArtifacts '**/*'
+                    archiveArtifacts '**/build/**/*'
                 }
             }
         }
