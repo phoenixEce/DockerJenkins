@@ -8,7 +8,7 @@ COPY sum.py /app
 
 RUN sphinx-quickstart -q -p "Documentation de sum en python" -a "Sandrine" -v "1.0" --sep --ext-autodoc --ext-viewcode --makefile --no-batchfile
 
-RUN echo "sum.py.........." >> /app/source/index.rst
+RUN echo "sum.py................" >> /app/source/index.rst
 
 # COPY conf.py /app/source
 

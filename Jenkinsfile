@@ -87,15 +87,12 @@ pipeline {
                 script {
                     echo 'Génération de la documentation...'
 
-                    // Exécuter Sphinx pour générer la documentation
                     bat "docker exec ${CONTAINER_ID} sphinx-build -b html /app/source /app/build"
                     
-                    // Vérifier le contenu du répertoire build
                     echo "Contenu du répertoire build :"
                     bat "docker exec ${CONTAINER_ID} ls /app/build"
                     
-                    // Archiver les artefacts générés
-                    archiveArtifacts 'build/**/*'
+                    archiveArtifacts '**/*'
                 }
             }
         }
